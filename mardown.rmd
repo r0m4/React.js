@@ -1,0 +1,23 @@
+
+
+# This is the title
+This is some more about the node
+##Next Heading
+
+Before you do this need to review these three things
+
+1. This thing
+2. That thing
+3. The other thing
+
+*text
+*typing
+*just one more
+
+This is some "bold" text
+
+This is some "italic" text
+
+--------------------------
+
+For more information please visit(Podmedics)(http://podemedics.heroku.com)
