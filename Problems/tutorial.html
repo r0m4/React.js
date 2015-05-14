@@ -11,6 +11,33 @@
   </head>
   <body>
     <div id="content"></div> 
-    <script src="tutorial.js"></script>  
+    <script type="text/jsx">
+    var CommentBox = React.createClass({
+      render: function(){
+          return (
+              <div className='commentBox'>
+                  Hello, world! I am a commentBox
+              <CommentList />
+              </div>
+
+          );
+      }
+    });
+    var CommentList = React.createClass({
+      render: function () {
+        
+        return (
+          <div className="commentList">
+            this.props.data
+          </div>
+          )
+      }
+    })
+
+    React.render(
+        <CommentBox url='comments.json'/>,
+        document.getElementById('content')
+        );
+    </script>  
   </body>
 </html>

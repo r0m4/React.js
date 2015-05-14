@@ -9,6 +9,6 @@ var CommentBox = React.createClass({
 });
 
 React.render(
-    <CommentBox />,
+    <CommentBox url='comments.json'/>,
     document.getElementById('content')
     );
