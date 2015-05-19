@@ -1,7 +1,22 @@
-[
+<!-- index.html -->
+<html>
+  <head>
+    <title>Hello React</title>
+    <meta charset="utf-8">
+    <script src="https://fb.me/react-0.13.2.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.2.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+        
+    var data = [
     {
         "author": "Pete Hunt",
-        "text": "Hey there!"
+        "text": "Hey there!",
+        "avatar": "https://vk.com/photo9662238_288147374"
     },
     {
         "author": "Roman",
@@ -71,4 +86,26 @@
         "author": "gg",
         "text": "sfdgsg"
     }
-]
+];
+
+     var Box = React.createClass({
+        getInitialState: function () {
+          return data[0];
+        },
+
+        render: function () {
+          return (
+            <div>
+              <h2>{this.state.author}</h2>
+              <img src={this.state.avatar} alt="" />
+            </div>
+            )
+        }
+      })
+
+      React.render(<Box></Box>, document.getElementById('content'));
+     
+
+    </script>
+  </body>
+</html>
