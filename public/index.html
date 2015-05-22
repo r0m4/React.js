@@ -30,7 +30,8 @@
           return (
             <div className='commentList'>
               {commentNodes} 
-              <button onClick={this.props.onClick}>Delete me</button></div>
+              <button onClick={this.props.onClick}>Delete me</button>
+              </div>
             );
         }
       });
@@ -110,7 +111,7 @@
               <h1>Comments</h1>
               <CommentList data={this.state.data} />
               <CommentForm onCommentSubmit={this.handleCommentSubmit} />
-              <
+              
             </div>
             );
         }

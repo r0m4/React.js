@@ -16,92 +16,86 @@
     {
         "author": "Pete Hunt",
         "text": "Hey there!",
-        "avatar": "https://vk.com/photo9662238_288147374"
+        "avatar": "https://pp.vk.me/c7011/v7011530/b744/7nNUwDsHHtA.jpg"
+        
     },
     {
         "author": "Roman",
-        "text": "Hiho"
+        "text": "Hiho",
+        "avatar": "https://pp.vk.me/c317021/u9662238/a_2e3cc238.jpg"
     },
     {
-        "author": "wfqege",
-        "text": "Uahahaha"
+        "author": "Diunko",
+        "text": "Uahahaha",
+        "avatar": "https://lh4.googleusercontent.com/-aI-MfkS02nQ/AAAAAAAAAAI/AAAAAAAAAOw/F_rhadEugN4/s46-c-k-no/photo.jpg"
     },
     {
         "author": "выапыв",
-        "text": "ывапыва"
+        "text": "ывапыва",
+        "avatar": "https://pp.vk.me/c10615/u174217294/a_916f1b5f.jpg"
     },
     {
         "author": "rjhbxytdsq",
-        "text": "hiho"
+        "text": "hiho",
+        "avatar": "https://pp.vk.me/c322729/v322729391/99b6/NAI6SwnXcWI.jpg"
     },
     {
         "author": "kjln",
-        "text": "ih"
+        "text": "ih",
+        "avatar": "https://pp.vk.me/c622318/v622318063/23612/JWeJYss1DjA.jpg"
     },
     {
         "author": "Jocker",
-        "text": "bebebebebebe"
+        "text": "bebebebebebe",
+        "avatar" : "https://pp.vk.me/c621916/v621916333/21848/IZ0Y5jVsbmc.jpg"
     },
     {
         "author": "ergwrw",
-        "text": "wegwergw"
-    },
-    {
-        "author": "kjlkjb",
-        "text": "bkj"
-    },
-    {
-        "author": "ROman",
-        "text": "kokopkpkp"
-    },
-    {
-        "author": "Петр 1",
-        "text": "издаю указ !!!"
-    },
-    {
-        "author": "да ладно",
-        "text": "напрачь нам твои указы :)"
-    },
-    {
-        "author": "хи хи хи",
-        "text": "уцацу"
-    },
-    {
-        "author": "sdadfd",
-        "text": "asdffs"
-    },
-    {
-        "author": "tratratra",
-        "text": "kikipop"
-    },
-    {
-        "author": "afgqgq",
-        "text": "adfadfda"
-    },
-    {
-        "author": "ergwerg",
-        "text": "wgwer"
-    },
-    {
-        "author": "gg",
-        "text": "sfdgsg"
+        "text": "wegwergw",
+        "avatar": "https://pp.vk.me/c624324/v624324482/13ec7/o-Kxf6ulmm0.jpg"
     }
 ];
 
-     var Box = React.createClass({
-        getInitialState: function () {
-          return data[0];
-        },
+     var Card = React.createClass({
+        
 
         render: function () {
           return (
             <div>
-              <h2>{this.state.author}</h2>
-              <img src={this.state.avatar} alt="" />
+              <h2>{this.props.author}</h2>
+              <img src={this.props.avatar} alt="" />
+              <h3>{this.props.text}</h3>
+              <div></div>
+              <button onClick={this.props.onClick}>Delete Me</button>
             </div>
             )
         }
-      })
+      });
+
+     var Box = React.createClass({
+        deletePerson: function (person) {
+            this.state.data.splice(this.state.data.indexOf(person), 1);
+
+            this.setState({data: this.state.data});
+        },
+
+        getInitialState: function () {
+          return {data : data};
+        },
+
+        render: function () {
+            var that = this;
+            return (
+                <div>
+                    {this.state.data.map(function (person) {
+                        return (
+                            <Card onClick={that.deletePerson.bind(null, person)} author={person.author} avatar={person.avatar} text={person.text}></Card>
+                            )
+                    })}
+                </div>
+                )
+        }
+     })
 
       React.render(<Box></Box>, document.getElementById('content'));
      
